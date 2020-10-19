@@ -75,5 +75,12 @@ void studentprint(vector<S*> StudentList){
 }
 
 void studentdelete(vector<S*>* StudentList, int deleteid){
-  
+  vector<S*>::iterator ptr;
+  for (ptr = StudentList->begin(); ptr < StudentList->end(); ptr++){
+    if ((*ptr)->id == deleteid){
+      delete *ptr;
+      StudentList->erase(ptr);
+    }
+  }
+  return;
 }
